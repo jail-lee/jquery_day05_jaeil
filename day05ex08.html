@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day05ex03_banner.html</title>
+    <style>
+       /* .btns > button:nth-child(1) {
+            background-color: chartreuse;
+        }*/
+        .imgs li:nth-child(1){
+            background-image: url('images/bird01.jpg');
+            
+        }
+        .imgs li:nth-child(2){
+            background-image: url('images/bird02.jpg');
+        }
+        .imgs li:nth-child(3){
+            background-image: url('images/bird03.jpg');
+        }
+        .imgs li:nth-child(4){
+            background-image: url('images/bird04.jpg');
+        }
+        .imgs {
+            padding: 0;
+            margin: 0;
+            width: 2400px;
+        }
+        .imgs li {
+            float: left;
+
+            width: 600px;
+            height: 400px;
+            color: orange;
+            text-shadow: 1px 1px 2px black;
+            font-size: 24px;
+            list-style: none;
+
+            background-size: 600px 400px;
+            background-position: bottom;
+        }
+        .banner, .imgs {
+            position: relative;
+            left : 0px;
+            transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) .5s;
+        }
+        .banner {
+            overflow: hidden;
+        }
+        .btns {
+            position: absolute;
+            left: 330px;
+            top: 360px;
+        }
+        .btns button {
+            box-shadow: 2px 2px 2px black;
+            border: 0px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul class="imgs">
+            <li>what a wonderful bird!</li>
+            <li>what a wonderful bird!</li>
+            <li>what a wonderful bird!</li>
+            <li>what a wonderful bird!</li>
+        </ul>
+    <div class="btns">
+        <button data-index="0">1</button>
+        <button data-index="1">2</button>
+        <button data-index="2">3</button>
+        <button data-index="3">4</button>
+    </div>
+</div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        
+        // .btns 안에 있는 button을 클릭된 버튼만 변색
+        $('.btns button:nth(0)').css('backgroundColor','chartreuse');
+        $('.btns button').click(function(){
+            $('.btns button').css('backgroundColor','');
+            $(this).css('backgroundColor','chartreuse');
+            
+            var index = $(this).attr('data-index');
+            var left = index * 600 * -1;
+
+            $('.imgs').css('left', left+'px');
+        });
+    });
+    </script>
+</body>
+</html>
